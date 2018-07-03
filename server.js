@@ -22,9 +22,11 @@ const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Add routes, both API and view
+// Add routes, both APIs and view
 const routes = require("./routes/auth-api");
+const art_routes = require("./routes/art-api");
 app.use(routes);
+app.use(art_routes);
 
 // passport config
 const User = require('./models/user');

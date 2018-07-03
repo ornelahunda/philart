@@ -1,0 +1,12 @@
+<div class="container">
+    <h1>Welcome</h1>
+    {{#if user}}
+        <p>You are currently logged in as {{user.username}}</p>
+        <a class="btn btn-default" href="/logout">Logout</a>
+    {{/if}}
+    {{#unless user}}
+        <p class="lead"> Login or register to continue.</p>
+        <a class="btn btn-default" href="/login">Login</a>
+        <a class="btn btn-default btn-primary" href="/register">Register</a>
+    {{/unless}}
+</div>
