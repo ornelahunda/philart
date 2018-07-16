@@ -4,7 +4,7 @@
   "https_only": true,
 
   "routes": {
-    "/": "index.html"
+    "/**": "index.html"
     },
 
     "proxies": {
