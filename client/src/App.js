@@ -1,5 +1,5 @@
 // import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, browserHistory } from "react-router-dom";
 import Home from './pages/Home';
 import Homepage from './pages/Homepage';
 import GetArt from './pages/GetArt';
@@ -23,7 +23,7 @@ class App extends Component {
 
     render() {
       return (
-  <Router>
+  <Router history={browserHistory}>
     <div className="app">
    
       <Switch>
