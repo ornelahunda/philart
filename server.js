@@ -1,4 +1,5 @@
 const express = require("express");
+var path = require('path');
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
