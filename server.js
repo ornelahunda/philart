@@ -19,10 +19,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 
-// added this 
-app.use(express.static(path.resolve(__dirname, '..', 'build')));
-
-
 app.use(cookieParser());
 
 // Define middleware here
