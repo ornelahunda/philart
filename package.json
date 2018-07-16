@@ -1,7 +1,11 @@
 {
   "name": "philart",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.0", 
+  "engines": {
+    "node": "8.9.3"},
+    
+  "description": "Philadelphia public art"
+  ,
   "main": "server.js",
   "homepage" : "http://ornelahundagithub.io/philart",
   "scripts": {
@@ -20,7 +24,6 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
-    "node" : "v8.9.3",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
