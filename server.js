@@ -12,6 +12,11 @@ const LocalStrategy = require('passport-local').Strategy;
 // var db = require("./models");
 
 const app = express();
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+
 const PORT = process.env.PORT || 3001;
 
 if (process.env.NODE_ENV === "production") {
