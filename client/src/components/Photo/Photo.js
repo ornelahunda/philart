@@ -11,34 +11,56 @@ export default class Photo extends Component {
   state = {
     artwork: []
   };
+ 
 
   componentDidMount() {
     this.loadArt();
   }
 
   loadArt = () => {
-    console.log("loading artwork");
     API.getArt()
       .then(res => {
         this.setState({ artwork: res.data })
-        console.log(this.state.artwork[0].title)
+        // console.log(this.state.artwork[0].title)
       })
       .catch(err => console.log(err));
   };
 
-  render() {
+  viewArt = (e) => {
+    console.log("view art clicked");
+    
+  }
+
+
+  saveToCollections=()=>{
+    API.addCollections()
+    .then(res => {
+    console.log("RESPONSE FROM BACK END TO MAKE STATE: ", res)
+      this.setState({ artwork: res.data })
+      // console.log(this.state.artwork[0].title)
+    })
+    .catch(err => console.log(err));
+      }
+
+
+    
+  render()  {
     return (
       <div>
         {this.state.artwork.length ? (
           <Grid className="photo-container">
-
+          
             {this.state.artwork.map(artwork => (
               
               <div className="photo-panel">
+              <a href={"/artwork/" + artwork._id} >
                 <div className="photo-content relative">
-                  <img src={artwork.imageurl} />
+                  <img src={artwork.imageurl} onClick={this.viewArt} data-id={artwork._id}/>
                   <h4 className="absolute art-title">{artwork.title}</h4>
                 </div>
+                </a> 
+                
+                
               </div>
               // <Thumbnail className="photo-panel" src={artwork.imageurl} alt="242x200">
               //   <div className="photo-content">

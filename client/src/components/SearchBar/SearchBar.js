@@ -12,10 +12,10 @@ render(){
 return( 
     <div>
 <Row>
-    <Col xs={10} xsOffset={2}>
+    <Col xs={12}>
         <Navbar.Form >
-          <FormGroup>
-          <FormControl type="text" placeholder="Search" />
+          <FormGroup >
+          <FormControl type="text" placeholder="Search" className="search-bar"/>
           </FormGroup>{' '}
           <Button type="submit">Submit</Button>
         </Navbar.Form>

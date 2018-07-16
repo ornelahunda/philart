@@ -1,0 +1,9 @@
+.hero {
+    background-color: #46466B;
+    color: #fff;
+    height: 200px;
+}
+.hero h1 {
+    margin-top: 40px;
+    font-weight: 800;
+}

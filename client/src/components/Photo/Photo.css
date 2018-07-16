@@ -27,6 +27,16 @@
     break-inside: avoid;
     padding: 5px;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+    opacity: .8;
+    transition-timing-function: ease-in-out;
+    transition: 0.35s;
+  }
+  .photo-panel:hover {
+    cursor: pointer;
+    opacity: 1;
+    -webkit-transform: scale(.98);
+    -ms-transform: scale(.98);
+    transform: scale(.98);
   }
   .photo-content {
     padding: 10px;

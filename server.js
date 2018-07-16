@@ -1,32 +1,53 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+// 
+// var path = require("path");
+// const routes = require("./routes");
+
+// models
+// var db = require("./models");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+}
+
+
+app.use(cookieParser());
+
 // Define middleware here
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(bodyParser.json());
 app.use(require("express-session")({
-    secret: 'keyboard cat',
+    secret: process.env.COOKIEHASH || 'keyboard cat',
     resave: false,
     saveUninitialized: false
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-const exphbs = require("express-handlebars");
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
 
 // Add routes, both APIs and view
 const routes = require("./routes/auth-api");
 const art_routes = require("./routes/art-api");
+const collections_routes = require("./routes/collectionRoute");
+
 app.use(routes);
 app.use(art_routes);
+app.use(collections_routes);
+
+
+// 
+
+
 
 // passport config
 const User = require('./models/user');
